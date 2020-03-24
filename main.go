@@ -36,7 +36,7 @@ type slackMsg struct {
 
 var (
 	port int
-	animals = []string{"D+H"}
+	animals = []string{"CultureShift"}
 	// Username must be first.
 	payloadExp = regexp.MustCompile(`([@#][^\s]+):?(.*)`)
 )
@@ -59,7 +59,7 @@ func readAnonymousMessage(r *http.Request) string {
 	msg := strings.TrimSpace(r.Form[keyText][0])
 	matches := payloadExp.FindStringSubmatch(msg)
 	if matches == nil {
-		return "Message should be like: /dh #channelname ThisIsTheAnnouncement"
+		return "Message should be like: /cultureshift #channelname ThisIsTheAnnouncement"
 	}
 	user := matches[1]
 	msg = strings.TrimSpace(matches[2])
